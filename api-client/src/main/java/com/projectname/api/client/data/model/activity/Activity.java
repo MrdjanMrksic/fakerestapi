@@ -33,6 +33,17 @@ public class Activity implements Serializable
         this.completed = completed;
     }
 
+    public static Activity parseExpectedActivityResponse (Activity activityRequest){
+      Activity activity = new Activity();
+
+      activity.setId(activityRequest.getId());
+      activity.setTitle(activityRequest.getTitle());
+      activity.setDueDate(activityRequest.getDueDate());
+      activity.setCompleted(activityRequest.isCompleted());
+
+      return activity;
+    }
+
     public int getId() {
         return id;
     }
