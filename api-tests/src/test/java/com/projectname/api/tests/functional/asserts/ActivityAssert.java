@@ -1,6 +1,7 @@
 package com.projectname.api.tests.functional.asserts;
 
 import com.projectname.api.client.data.model.activity.Activity;
+import com.projectname.api.client.data.model.users.update.UpdateUserResponse;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -30,5 +31,19 @@ public class ActivityAssert {
         softAssert.assertEquals(actualResponse.isCompleted(), expectedRequest.isCompleted(), "Completion status did not match");
 
         softAssert.assertAll();
+    }
+
+    public void assertUpdateActivity(Activity actualResponse, Activity expectedResponse) {
+        if (actualResponse == null) {
+            Assert.fail("Activity is not updated");
+        }
+        softAssert.assertEquals(actualResponse.getId(), expectedResponse.getId(), "ID did not match");
+        softAssert.assertEquals(actualResponse.getTitle(), expectedResponse.getTitle(), "Title did not match");
+        softAssert.assertEquals(actualResponse.getDueDate(), expectedResponse.getDueDate(), "Due date did not match");
+        softAssert.assertEquals(actualResponse.isCompleted(), expectedResponse.isCompleted(), "Completion status did not match");
+
+        softAssert.assertAll();
+
+
     }
 }
