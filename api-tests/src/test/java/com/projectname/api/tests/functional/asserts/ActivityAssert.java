@@ -1,7 +1,6 @@
 package com.projectname.api.tests.functional.asserts;
 
-import com.projectname.api.client.data.model.activity.Activity;
-import com.projectname.api.client.data.model.users.update.UpdateUserResponse;
+import com.projectname.api.client.data.model.activity.common.Activity;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -20,7 +19,7 @@ public class ActivityAssert {
         softAssert.assertAll();
     }
 
-    public void assertActivity(Activity activityResponse){
+    public void assertActivityById(Activity activityResponse){
         softAssert.assertFalse(activityResponse.getId() < 0, "ID is less than 0"); //how to check if int is empty, notNull does not work
         softAssert.assertFalse(activityResponse.getTitle().isEmpty(), "Title is empty");
         softAssert.assertFalse(activityResponse.getDueDate().isEmpty(), "Due date is  empty");
@@ -28,20 +27,7 @@ public class ActivityAssert {
         softAssert.assertAll();
     }
 
-    public void assertCreateActivityResponse(Activity actualResponse, Activity expectedRequest) {
-        if (actualResponse == null){
-            Assert.fail("Activity is not created");
-        }
-
-        softAssert.assertEquals(actualResponse.getId(), expectedRequest.getId(), "ID did not match");
-        softAssert.assertEquals(actualResponse.getTitle(), expectedRequest.getTitle(), "Title did not match");
-        softAssert.assertEquals(actualResponse.getDueDate(), expectedRequest.getDueDate(), "Due date did not match");
-        softAssert.assertEquals(actualResponse.isCompleted(), expectedRequest.isCompleted(), "Completion status did not match");
-
-        softAssert.assertAll();
-    }
-
-    public void assertUpdateActivity(Activity actualResponse, Activity expectedResponse) {
+    public void assertActivityResponses(Activity actualResponse, Activity expectedResponse) {
         if (actualResponse == null) {
             Assert.fail("Activity is not updated");
         }
@@ -51,7 +37,5 @@ public class ActivityAssert {
         softAssert.assertEquals(actualResponse.isCompleted(), expectedResponse.isCompleted(), "Completion status did not match");
 
         softAssert.assertAll();
-
-
     }
 }

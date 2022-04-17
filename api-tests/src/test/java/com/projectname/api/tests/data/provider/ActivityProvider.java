@@ -1,15 +1,12 @@
 package com.projectname.api.tests.data.provider;
 
 import com.projectname.api.client.calls.ActivityAPI;
-import com.projectname.api.client.data.model.activity.Activity;
-import com.projectname.api.client.data.model.users.create.CreateUserRequest;
+import com.projectname.api.client.data.model.activity.common.Activity;
 import com.projectname.api.client.utils.RandomStringGenerator;
 import com.projectname.api.tests.constants.DataProviderNames;
-import com.projectname.api.tests.init.TestBase;
 import org.testng.annotations.DataProvider;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -25,7 +22,7 @@ public class ActivityProvider {
         int id = 0;
         List<Activity> activityResponse = ActivityAPI.activityResponse();
 
-        for (int i = 0; i <= activityResponse.size(); i++) {
+        for (int i = 0; i < activityResponse.size(); i++) {
             if (id <= activityResponse.get(i).getId()) {
                 id = activityResponse.get(i).getId()+1;
             }

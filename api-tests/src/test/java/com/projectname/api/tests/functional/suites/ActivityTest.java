@@ -1,12 +1,14 @@
 package com.projectname.api.tests.functional.suites;
 
 import com.projectname.api.client.calls.ActivityAPI;
-import com.projectname.api.client.data.model.activity.Activity;
+import com.projectname.api.client.data.model.activity.common.Activity;
+import com.projectname.api.client.data.model.activity.delete.EmptyResponse;
 import com.projectname.api.tests.constants.DataProviderNames;
 import com.projectname.api.tests.data.provider.ActivityProvider;
 import com.projectname.api.tests.functional.asserts.ActivityAssert;
 import com.projectname.api.tests.init.TestBase;
 import jdk.jfr.Description;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class ActivityTest extends TestBase {
 
         ActivityAssert activityAssert = new ActivityAssert();
         logStep("INFO: Verify user is created");
-        activityAssert.assertCreateActivityResponse(createActivityActual, createActivityExpected);
+        activityAssert.assertActivityResponses(createActivityActual, createActivityExpected);
         logStep("PASS: Response is verified");
 
 
@@ -56,7 +58,7 @@ public class ActivityTest extends TestBase {
 
         ActivityAssert activityAssert = new ActivityAssert();
         logStep("INFO: Verify Activity is created");
-        activityAssert.assertCreateActivityResponse(createActivityActual, createActivityExpected);
+        activityAssert.assertActivityResponses(createActivityActual, createActivityExpected);
         logStep("PASS: Response is verified");
 
     }
@@ -66,19 +68,31 @@ public class ActivityTest extends TestBase {
     public void getActivityById() {
         Activity getActivityById = ActivityAPI.getActivityById(12);
 
-        activityAssert.assertActivity(getActivityById);
+        activityAssert.assertActivityById(getActivityById);
     }
 
 
 
     @Test(groups = {"regression", "smoke"}, dataProvider = DataProviderNames.VERIFY_UPDATE_ACTIVITY, dataProviderClass = ActivityProvider.class)
-    @Description("Test put activity by ID and assert that the update was successful")
+    @Description("Test put activity by id and assert that the update was successful")
     public static void verifyUpdateActivityById(String suffix, Activity updateActivityRequest){
         Activity actualResponse = ActivityAPI.putActivityById(10, updateActivityRequest);
 
         Activity expectedResponse = Activity.parseExpectedActivityResponse(updateActivityRequest);
 
         ActivityAssert activityAssert = new ActivityAssert();
-        activityAssert.assertUpdateActivity(actualResponse, expectedResponse);
+        activityAssert.assertActivityResponses(actualResponse, expectedResponse);
+    }
+
+    @Test
+    @Description("Test delete activity by id and assert that deletion was successful")
+    public static void verifyDeleteActivityById(){
+        EmptyResponse actualResponse = ActivityAPI.deleteActivityById(10);
+
+        Assert.assertNull(actualResponse);
+
+        //Proper test would be to try and get activity with the same id that we just deleted
+        //But because of the API under test, this test would fail
+
     }
 }
