@@ -61,6 +61,16 @@ public class ActivityTest extends TestBase {
 
     }
 
+    @Test
+    @Description("Test getting activity by id and assert that all fields are not empty")
+    public void getActivityById() {
+        Activity getActivityById = ActivityAPI.getActivityById(12);
+
+        activityAssert.assertActivity(getActivityById);
+    }
+
+
+
     @Test(groups = {"regression", "smoke"}, dataProvider = DataProviderNames.VERIFY_UPDATE_ACTIVITY, dataProviderClass = ActivityProvider.class)
     @Description("Test put activity by ID and assert that the update was successful")
     public static void verifyUpdateActivityById(String suffix, Activity updateActivityRequest){

@@ -20,6 +20,14 @@ public class ActivityAssert {
         softAssert.assertAll();
     }
 
+    public void assertActivity(Activity activityResponse){
+        softAssert.assertFalse(activityResponse.getId() < 0, "ID is less than 0"); //how to check if int is empty, notNull does not work
+        softAssert.assertFalse(activityResponse.getTitle().isEmpty(), "Title is empty");
+        softAssert.assertFalse(activityResponse.getDueDate().isEmpty(), "Due date is  empty");
+
+        softAssert.assertAll();
+    }
+
     public void assertCreateActivityResponse(Activity actualResponse, Activity expectedRequest) {
         if (actualResponse == null){
             Assert.fail("Activity is not created");
