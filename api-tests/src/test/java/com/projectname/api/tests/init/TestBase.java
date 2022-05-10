@@ -47,6 +47,9 @@ public class TestBase implements ITest {
             testName = method.getName();
         }
 
+        //set baseURI for tests
+        RestAssured.baseURI = ConfigSetup.getBaseUrl();
+
     }
 
     @Override
@@ -59,4 +62,5 @@ public class TestBase implements ITest {
     public void revalidate() {
         GsonFunctions.revalidateResponseValidationList();
     }
+
 }
