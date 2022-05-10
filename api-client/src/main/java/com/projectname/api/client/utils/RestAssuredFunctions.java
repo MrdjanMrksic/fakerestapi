@@ -69,6 +69,10 @@ public class RestAssuredFunctions {
                 .delete(uri).then().extract().response();
     }
 
+    public static Response delete(String uri){
+        return given().when().delete(uri).then().extract().response();
+    }
+
     public static Response patch(Object body, String token, String uri) {
         String json = new GsonBuilder().setPrettyPrinting().create().toJson(body);
         return given().contentType(ContentType.JSON).header(GlobalParams.AUTHORIZATION, "Bearer " + token).body(json).when()

@@ -83,6 +83,12 @@
             <artifactId>groovy-json</artifactId>
             <version>3.0.8</version>
         </dependency>
+        <dependency>
+            <groupId>com.projectname</groupId>
+            <artifactId>api-tests</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
