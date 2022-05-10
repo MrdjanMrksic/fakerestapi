@@ -2,10 +2,9 @@ package com.projectname.api.client.calls;
 
 import java.util.List;
 
-import com.google.protobuf.Api;
 import com.projectname.api.client.constants.ApiEndpoints;
 import com.projectname.api.client.data.model.activity.common.Activity;
-import com.projectname.api.client.data.model.activity.delete.EmptyResponse;
+import com.projectname.api.client.data.model.delete.EmptyResponse;
 import com.projectname.api.client.utils.GsonFunctions;
 import com.projectname.api.client.utils.RestAssuredFunctions;
 
