@@ -1,4 +1,4 @@
-package com.projectname.api.client.data.model.activity;
+package com.projectname.api.client.data.model.activity.common;
 
 import java.io.Serializable;
 
