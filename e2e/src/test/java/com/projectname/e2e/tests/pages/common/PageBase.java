@@ -6,7 +6,7 @@ import com.projectname.e2e.tests.webdriver.CustomWebDriver;
 
 import static com.projectname.api.client.utils.Allure.logStep;
 
-public abstract class PageBase {
+public abstract class  PageBase {
     protected CustomWebDriver driver;
     protected String url;
     protected String email;
