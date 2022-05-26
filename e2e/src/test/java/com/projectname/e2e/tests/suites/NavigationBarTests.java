@@ -6,6 +6,7 @@ import com.projectname.e2e.tests.pages.features.HotelsModulePage;
 import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
 import com.projectname.e2e.tests.pages.NavigationBarPage;
 import com.projectname.e2e.tests.pages.PricingPage;
+import com.projectname.e2e.tests.pages.features.ToursModulePage;
 import com.projectname.e2e.tests.suites.common.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -55,5 +56,14 @@ public class NavigationBarTests extends TestBase {
         FlightsModulePage flightsModulePage = navigationBarPage.openFlightsModulePage();
 
         Assert.assertTrue(flightsModulePage.isDisplayed());
+    }
+
+    @Test
+    public void VerifyToursModulePageIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
+
+       ToursModulePage toursModulePage = navigationBarPage.openToursModulePage();
+
+        Assert.assertTrue(toursModulePage.isDisplayed());
     }
 }

@@ -4,6 +4,7 @@ import com.projectname.e2e.tests.pages.common.PageBase;
 import com.projectname.e2e.tests.pages.features.FlightsModulePage;
 import com.projectname.e2e.tests.pages.features.HotelsModulePage;
 import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
+import com.projectname.e2e.tests.pages.features.ToursModulePage;
 import com.projectname.e2e.tests.selectors.CustomBy;
 import com.projectname.e2e.tests.utils.CheckIfElement;
 import com.projectname.e2e.tests.webdriver.CustomWebDriver;
@@ -82,6 +83,16 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getToursModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[4]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Tours Module button on Features dropdown menu", e);
+        }
+    }
+
     public DemoPage openDemoPage(){
         getDemoBtn().click();
         return new DemoPage(driver, url, email, password);
@@ -108,5 +119,9 @@ public class NavigationBarPage extends PageBase {
         return new FlightsModulePage(driver, url, email, password);
     }
 
+    public ToursModulePage openToursModulePage(){
+        getToursModuleBtn().click();
+        return new ToursModulePage(driver, url, email, password);
+    }
 
 }
