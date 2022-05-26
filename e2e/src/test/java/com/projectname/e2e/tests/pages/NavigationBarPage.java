@@ -1,6 +1,7 @@
 package com.projectname.e2e.tests.pages;
 
 import com.projectname.e2e.tests.pages.common.PageBase;
+import com.projectname.e2e.tests.pages.features.HotelsModulePage;
 import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
 import com.projectname.e2e.tests.selectors.CustomBy;
 import com.projectname.e2e.tests.utils.CheckIfElement;
@@ -56,7 +57,17 @@ public class NavigationBarPage extends PageBase {
             return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[1]"));
         } catch (Exception e){
             e.printStackTrace();
-            throw new AssertionError("Could not find Main button on Features dropdown menu");
+            throw new AssertionError("Could not find Main Fetures button on Features dropdown menu");
+        }
+    }
+
+    private WebElement getHotelsModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[2]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Hotels Module button on Features dropdown menu", e);
         }
     }
 
@@ -73,6 +84,12 @@ public class NavigationBarPage extends PageBase {
     public MainFeaturesPage openMainFeaturesPage(){
         getMainFeaturesBtn().click();
         return new MainFeaturesPage(driver, url, email, password);
+    }
+
+
+    public HotelsModulePage openHotelsModulePage(){
+        getHotelsModuleBtn().click();
+        return new HotelsModulePage(driver, url, email, password);
     }
 
 
