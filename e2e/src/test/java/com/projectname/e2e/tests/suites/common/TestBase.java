@@ -76,7 +76,7 @@ public class TestBase implements ITest, IInvokedMethodListener {
 
         getDriver().get(baseUrl);
         getDriver().manage().window().maximize();
-        getDriver().waitForElementToBePresent(CustomBy.testAutomationId("emailInput"));
+        getDriver().waitForElementToBePresent(CustomBy.xpath("//*[@id=\"Main\"]/div[2]/div[1]/div/div[2]/div/div[2]/a[1]"));
         getDriver().addMouseFollowOnClick();
     }
 
