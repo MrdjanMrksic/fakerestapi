@@ -1,5 +1,6 @@
-package com.projectname.e2e.tests.pages;
+package com.projectname.e2e.tests.pages.features;
 
+import com.projectname.e2e.tests.pages.NavigationBarPage;
 import com.projectname.e2e.tests.pages.common.PageBase;
 import com.projectname.e2e.tests.selectors.CustomBy;
 import com.projectname.e2e.tests.utils.CheckIfElement;
@@ -12,7 +13,13 @@ public class MainFeaturesPage extends PageBase {
 
     @Override
     public PageBase show() {
-        return null;
+        if(!isDisplayed()){
+            NavigationBarPage navigationBarPage = new NavigationBarPage(driver, url, email, password);
+            if (navigationBarPage.isDisplayed()){
+                navigationBarPage.openMainFeaturesPage();
+            }
+        }
+        return this;
     }
 
     @Override

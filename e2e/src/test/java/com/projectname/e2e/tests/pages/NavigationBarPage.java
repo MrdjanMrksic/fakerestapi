@@ -1,6 +1,7 @@
 package com.projectname.e2e.tests.pages;
 
 import com.projectname.e2e.tests.pages.common.PageBase;
+import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
 import com.projectname.e2e.tests.selectors.CustomBy;
 import com.projectname.e2e.tests.utils.CheckIfElement;
 import com.projectname.e2e.tests.webdriver.CustomWebDriver;

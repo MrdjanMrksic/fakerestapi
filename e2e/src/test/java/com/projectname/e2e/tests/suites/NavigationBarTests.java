@@ -1,7 +1,7 @@
 package com.projectname.e2e.tests.suites;
 
 import com.projectname.e2e.tests.pages.DemoPage;
-import com.projectname.e2e.tests.pages.MainFeaturesPage;
+import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
 import com.projectname.e2e.tests.pages.NavigationBarPage;
 import com.projectname.e2e.tests.pages.PricingPage;
 import com.projectname.e2e.tests.suites.common.TestBase;
