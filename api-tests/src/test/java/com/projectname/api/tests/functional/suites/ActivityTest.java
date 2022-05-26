@@ -2,7 +2,7 @@ package com.projectname.api.tests.functional.suites;
 
 import com.projectname.api.client.calls.ActivityAPI;
 import com.projectname.api.client.data.model.activity.common.Activity;
-import com.projectname.api.client.data.model.activity.delete.EmptyResponse;
+import com.projectname.api.client.data.model.delete.EmptyResponse;
 import com.projectname.api.tests.constants.DataProviderNames;
 import com.projectname.api.tests.data.provider.ActivityProvider;
 import com.projectname.api.tests.functional.asserts.ActivityAssert;
@@ -19,7 +19,7 @@ public class ActivityTest extends TestBase {
     ActivityAssert activityAssert = new ActivityAssert();
 
     @Test
-    @Description("Test getting of the list of activities and assert that all objects are not empty")
+    @Description("Test getting the list of activities and assert that all objects are not empty")
     public void getListOfActivitiesTest() {
         List<Activity> getActivitiesResponse = ActivityAPI.activityResponse();
 

@@ -1,4 +1,4 @@
-package com.projectname.api.client.data.model.activity.delete;
+package com.projectname.api.client.data.model.delete;
 
 import java.io.Serializable;
 
