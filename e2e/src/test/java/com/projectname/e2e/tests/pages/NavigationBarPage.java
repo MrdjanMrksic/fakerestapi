@@ -31,6 +31,15 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getPricingBtn(){
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/a[2]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Pricing button on Navigation bar page", e);
+        }
+    }
+
     private WebElement getFeaturesBtn(){
         try {
             return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/span"));
@@ -50,15 +59,22 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    public DemoPage openDemoPage(){
+        getDemoBtn().click();
+        return new DemoPage(driver, url, email, password);
+    }
+
+    public PricingPage openPricingPage(){
+        getPricingBtn().click();
+        return new PricingPage(driver, url, email, password);
+    }
+
     public MainFeaturesPage openMainFeaturesPage(){
         getMainFeaturesBtn().click();
         return new MainFeaturesPage(driver, url, email, password);
     }
 
-    public DemoPage openDemoPage(){
-        getDemoBtn().click();
-        return new DemoPage(driver, url, email, password);
-    }
+
 
 
 }

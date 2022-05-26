@@ -3,6 +3,7 @@ package com.projectname.e2e.tests.suites;
 import com.projectname.e2e.tests.pages.DemoPage;
 import com.projectname.e2e.tests.pages.MainFeaturesPage;
 import com.projectname.e2e.tests.pages.NavigationBarPage;
+import com.projectname.e2e.tests.pages.PricingPage;
 import com.projectname.e2e.tests.suites.common.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,6 +17,15 @@ public class NavigationBarTests extends TestBase {
         DemoPage demoPage = navigationBarPage.openDemoPage();
 
         Assert.assertTrue(demoPage.isDisplayed());
+    }
+
+    @Test
+    public void verifyPricingButtonIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(),"","","");
+
+        PricingPage pricingPage = navigationBarPage.openPricingPage();
+
+        Assert.assertTrue(pricingPage.isDisplayed());
     }
 
     @Test
