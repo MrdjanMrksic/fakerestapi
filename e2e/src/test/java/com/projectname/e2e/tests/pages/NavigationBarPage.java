@@ -120,6 +120,16 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getNewsletterModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[8]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Newsletter Module button on Features dropdown menu", e);
+        }
+    }
+
     public DemoPage openDemoPage(){
         getDemoBtn().click();
         return new DemoPage(driver, url, email, password);
@@ -162,7 +172,7 @@ public class NavigationBarPage extends PageBase {
     }
 
     public BlogModulePage openBlogModulePage(){
-        getOffersModuleBtn().click();
+        getBlogModuleBtn().click();
         return new BlogModulePage(driver, url, email, password);
     }
 }
