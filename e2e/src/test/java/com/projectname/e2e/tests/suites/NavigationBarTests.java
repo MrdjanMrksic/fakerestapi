@@ -72,4 +72,22 @@ public class NavigationBarTests extends TestBase {
 
         Assert.assertTrue(carsModulePage.isDisplayed());
     }
+
+    @Test
+    public void VerifyOffersModulePageIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
+
+        OffersModulePage offersModulePage = navigationBarPage.openOffersModulePage();
+
+        Assert.assertTrue(offersModulePage.isDisplayed());
+    }
+
+    @Test
+    public void VerifyBlogModulePageIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
+
+        OffersModulePage offersModulePage = navigationBarPage.openOffersModulePage();
+
+        Assert.assertTrue(offersModulePage.isDisplayed());
+    }
 }

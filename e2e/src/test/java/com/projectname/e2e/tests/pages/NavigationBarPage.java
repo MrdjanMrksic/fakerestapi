@@ -100,6 +100,26 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getOffersModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[6]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Offers Module button on Features dropdown menu", e);
+        }
+    }
+
+    private WebElement getBlogModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[7]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Blog Module button on Features dropdown menu", e);
+        }
+    }
+
     public DemoPage openDemoPage(){
         getDemoBtn().click();
         return new DemoPage(driver, url, email, password);
@@ -136,4 +156,13 @@ public class NavigationBarPage extends PageBase {
         return new CarsModulePage(driver, url, email, password);
     }
 
+    public OffersModulePage openOffersModulePage(){
+        getOffersModuleBtn().click();
+        return new OffersModulePage(driver, url, email, password);
+    }
+
+    public BlogModulePage openBlogModulePage(){
+        getOffersModuleBtn().click();
+        return new BlogModulePage(driver, url, email, password);
+    }
 }
