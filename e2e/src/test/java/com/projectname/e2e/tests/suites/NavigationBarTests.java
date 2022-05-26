@@ -1,6 +1,7 @@
 package com.projectname.e2e.tests.suites;
 
 import com.projectname.e2e.tests.pages.DemoPage;
+import com.projectname.e2e.tests.pages.features.FlightsModulePage;
 import com.projectname.e2e.tests.pages.features.HotelsModulePage;
 import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
 import com.projectname.e2e.tests.pages.NavigationBarPage;
@@ -39,11 +40,20 @@ public class NavigationBarTests extends TestBase {
     }
 
     @Test
-    public void VerifyHotesModulePageIsWorking(){
+    public void VerifyHotelsModulePageIsWorking(){
         NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
 
         HotelsModulePage hotelsModulePage = navigationBarPage.openHotelsModulePage();
 
         Assert.assertTrue(hotelsModulePage.isDisplayed());
+    }
+
+    @Test
+    public void VerifyFlightsModulePageIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
+
+        FlightsModulePage flightsModulePage = navigationBarPage.openFlightsModulePage();
+
+        Assert.assertTrue(flightsModulePage.isDisplayed());
     }
 }

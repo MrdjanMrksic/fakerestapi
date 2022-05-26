@@ -1,6 +1,7 @@
 package com.projectname.e2e.tests.pages;
 
 import com.projectname.e2e.tests.pages.common.PageBase;
+import com.projectname.e2e.tests.pages.features.FlightsModulePage;
 import com.projectname.e2e.tests.pages.features.HotelsModulePage;
 import com.projectname.e2e.tests.pages.features.MainFeaturesPage;
 import com.projectname.e2e.tests.selectors.CustomBy;
@@ -71,6 +72,16 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getFlightsModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[3]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Flights Module button on Features dropdown menu", e);
+        }
+    }
+
     public DemoPage openDemoPage(){
         getDemoBtn().click();
         return new DemoPage(driver, url, email, password);
@@ -92,7 +103,10 @@ public class NavigationBarPage extends PageBase {
         return new HotelsModulePage(driver, url, email, password);
     }
 
-
+    public FlightsModulePage openFlightsModulePage(){
+        getFlightsModuleBtn().click();
+        return new FlightsModulePage(driver, url, email, password);
+    }
 
 
 }
