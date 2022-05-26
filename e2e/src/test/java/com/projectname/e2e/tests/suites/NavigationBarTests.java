@@ -90,4 +90,22 @@ public class NavigationBarTests extends TestBase {
 
         Assert.assertTrue(offersModulePage.isDisplayed());
     }
+
+    @Test
+    public void VerifyNewsletterModulePageIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
+
+        NewsletterModulePage newsletterModulePage = navigationBarPage.openNewsletterModulePage();
+
+        Assert.assertTrue(newsletterModulePage.isDisplayed());
+    }
+
+    @Test
+    public void VerifyCmsModulePageIsWorking(){
+        NavigationBarPage navigationBarPage = new NavigationBarPage(getDriver(), "", "", "");
+
+        CmsModulePage cmsModulePage = navigationBarPage.openCmsModulePage();
+
+        Assert.assertTrue(cmsModulePage.isDisplayed());
+    }
 }

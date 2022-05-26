@@ -130,6 +130,16 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getCmsModuleBtn(){
+        getFeaturesBtn().click();
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/div[1]/div/a[9]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find CMS Module button on Features dropdown menu", e);
+        }
+    }
+
     public DemoPage openDemoPage(){
         getDemoBtn().click();
         return new DemoPage(driver, url, email, password);
@@ -174,5 +184,15 @@ public class NavigationBarPage extends PageBase {
     public BlogModulePage openBlogModulePage(){
         getBlogModuleBtn().click();
         return new BlogModulePage(driver, url, email, password);
+    }
+
+    public NewsletterModulePage openNewsletterModulePage(){
+        getNewsletterModuleBtn().click();
+        return new NewsletterModulePage(driver, url, email, password);
+    }
+
+    public CmsModulePage openCmsModulePage(){
+        getCmsModuleBtn().click();
+        return new CmsModulePage(driver, url, email, password);
     }
 }
