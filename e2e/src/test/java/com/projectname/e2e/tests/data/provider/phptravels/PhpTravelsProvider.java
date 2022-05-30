@@ -23,20 +23,6 @@ public class PhpTravelsProvider {
         userRequest.setPassword(RandomStringGenerator.createRandomStringAlphabeticWithLen(8));
         userRequest.setMobile(RandomStringGenerator.createRandomStringNumericWithLen(12));
 
-//        userRequest.setFirstName("Mrdjan");
-//        userRequest.setLastName("Mrksic");
-//        userRequest.setEmail("mrdjanovmail@mail.com");
-//        userRequest.setPhoneNumber("123456789");
-//        userRequest.setCompanyName("Sumeca tableta");
-//        userRequest.setAddress1("Carnojeviceva 54");
-//        userRequest.setAddress2("Zmaj Jovina 42");
-//        userRequest.setCity("Becej");
-//        userRequest.setState("Vojvodina");
-//        userRequest.setPostalCode("21220");
-//        userRequest.setCountry(Country.getRandomCountry());
-//        userRequest.setPassword("Admin123");
-//        userRequest.setMobile("987654321");
-
         return userRequest;
     }
 }
