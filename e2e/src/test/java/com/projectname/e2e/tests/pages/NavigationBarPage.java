@@ -23,6 +23,8 @@ public class NavigationBarPage extends PageBase {
         return CheckIfElement.isDisplayed(CustomBy.id("PHPTRAVELS"), driver);
     }
 
+    //GET BUTTON
+
     private WebElement getDemoBtn(){
         try {
             return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/a[1]"));
@@ -140,6 +142,18 @@ public class NavigationBarPage extends PageBase {
         }
     }
 
+    private WebElement getSignupBtn(){
+        try{
+            return driver.findElement(CustomBy.xpath("/html/body/header/div/nav/a[5]"));
+        } catch (Exception e){
+            e.printStackTrace();
+            throw new AssertionError("Could not find Sign Up button in Navigation bar", e);
+        }
+    }
+
+
+    //OPEN PAGE
+
     public DemoPage openDemoPage(){
         getDemoBtn().click();
         return new DemoPage(driver, url, email, password);
@@ -194,5 +208,10 @@ public class NavigationBarPage extends PageBase {
     public CmsModulePage openCmsModulePage(){
         getCmsModuleBtn().click();
         return new CmsModulePage(driver, url, email, password);
+    }
+
+    public SignupPage openSignupPage(){
+        getSignupBtn().click();
+        return new SignupPage(driver, url, email, password);
     }
 }
